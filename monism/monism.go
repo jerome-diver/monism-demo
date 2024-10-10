@@ -31,8 +31,8 @@ func ModifyMonism[T Acceptable](first Monism, modifiers ...Monism) Monism {
 		case "Something":
 			next = after
 		case "MetaDefiner":
-			meta := Monism(after).(MetaDefiner)
-			printer_before := Monism(after.Exec()).(Something)
+			meta := after.(MetaDefiner)
+			printer_before := after.Exec().(Something)
 			printer_before.Title = meta.Say
 			next = printer_before
 		}
